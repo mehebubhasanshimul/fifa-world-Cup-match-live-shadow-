@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA WORLD CUP 2026 - ULTIMATE CYBER PLATFORM</title>
+    <title>FIFA WORLD CUP 2026 - CYBER LIVE PLATFORM</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/@videojs/themes@1.0.1/dist/fantasy/index.css" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        /* Cyber Neon & Ultra Glassmorphism Stylings */
         .cyber-panel {
-            background: rgba(10, 15, 30, 0.7);
+            background: rgba(10, 15, 30, 0.75);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(0, 242, 254, 0.25);
@@ -31,30 +30,23 @@
             background: linear-gradient(to bottom, #00f2fe, #ff0080);
             border-radius: 10px;
         }
-        
-        /* Fixing Video.js Size and Errors */
         .video-js {
             width: 100% !important;
             height: 100% !important;
             border-radius: 1rem;
-        }
-        .vjs-poster {
-            background-size: cover !important;
         }
         .video-js .vjs-big-play-button {
             background: linear-gradient(135deg, #ff0080, #7c3aed) !important;
             border: 2px solid #00f2fe !important;
             width: 2.8em !important;
             height: 2.8em !important;
-            line-height: 2.7em !important;
-            border-radius: 50% !important;
+            line-radius: 50% !important;
             margin-top: -1.4em !important;
             margin-left: -1.4em !important;
             box-shadow: 0 0 25px rgba(0, 242, 254, 0.7);
-            transition: transform 0.3s ease;
         }
-        .video-js:hover .vjs-big-play-button {
-            transform: scale(1.1) rotate(5deg);
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -64,12 +56,12 @@
         
         <header class="p-4 border-b border-cyan-500/10 bg-slate-950/80 flex justify-between items-center z-10 backdrop-blur-md">
             <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md shadow-cyan-500/20 animate-pulse">
-                    <i data-lucide="aperture" class="text-white w-5 h-5"></i>
+                <div class="w-9 h-9 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md shadow-cyan-500/20">
+                    <i data-lucide="aperture" class="text-white w-5 h-5 animate-spin" style="animation-duration: 8s;"></i>
                 </div>
                 <div>
                     <h1 class="text-sm font-black tracking-widest bg-gradient-to-r from-cyan-400 via-pink-500 to-amber-400 bg-clip-text text-transparent uppercase">CYBER PLATFORM</h1>
-                    <p class="text-[9px] text-cyan-400/80 font-bold tracking-widest uppercase">Version 4.5 Stable</p>
+                    <p class="text-[9px] text-cyan-400/80 font-bold tracking-widest uppercase">IPTV-ORG AUTO SYSTEM</p>
                 </div>
             </div>
             
@@ -78,8 +70,8 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <div class="text-[9px] font-black bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider">
-                    SECURE ENGINE
+                <div id="api-status" class="text-[8px] font-black bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                    SYNCED
                 </div>
             </div>
         </header>
@@ -95,36 +87,39 @@
             <div class="p-3.5 bg-slate-950/80 rounded-2xl border border-slate-800/60 flex justify-between items-center shadow-inner">
                 <div class="flex items-center gap-3">
                     <div id="channel-icon-box" class="w-10 h-10 bg-gradient-to-tr from-cyan-500/10 to-pink-500/10 rounded-xl flex items-center justify-center text-xl border border-cyan-500/20 shadow-md">
-                        ⚡
+                        📺
                     </div>
-                    <div>
-                        <h2 id="active-stream-title" class="text-xs font-black text-white tracking-wide">T-Sports Live Network</h2>
-                        <p id="active-stream-category" class="text-[9px] text-cyan-400 font-bold uppercase tracking-widest mt-0.5">📌 Featured Match Server</p>
+                    <div class="max-w-[180px]">
+                        <h2 id="active-stream-title" class="text-xs font-black text-white tracking-wide truncate">Select a Channel</h2>
+                        <p id="active-stream-category" class="text-[9px] text-cyan-400 font-bold uppercase tracking-widest mt-0.5 truncate">Source: IPTV-ORG</p>
                     </div>
                 </div>
                 <div class="bg-pink-500/10 border border-pink-500/20 px-2.5 py-1 rounded-xl flex items-center gap-1.5 text-pink-400">
                     <i data-lucide="activity" class="w-3 h-3 animate-pulse"></i>
-                    <span id="dynamic-viewers" class="text-[10px] font-black tracking-wider">64.5K</span>
+                    <span id="dynamic-viewers" class="text-[10px] font-black tracking-wider">42.5K</span>
                 </div>
             </div>
 
             <div class="relative">
                 <i data-lucide="search" class="absolute left-3.5 top-3.5 text-slate-500 w-4 h-4"></i>
-                <input type="text" id="live-search-engine" oninput="runSearchFilter(this.value)" placeholder="Type to filter channels instantly..." class="w-full bg-slate-950/80 border border-slate-800/80 focus:border-cyan-500/50 rounded-xl py-3 pl-11 pr-4 text-xs font-medium text-slate-200 focus:outline-none transition-all shadow-inner">
+                <input type="text" id="live-search-engine" oninput="runSearchFilter(this.value)" placeholder="Search from scraped playlist..." class="w-full bg-slate-950/80 border border-slate-800/80 focus:border-cyan-500/50 rounded-xl py-3 pl-11 pr-4 text-xs font-medium text-slate-200 focus:outline-none transition-all shadow-inner">
                 <button onclick="resetSearchField()" id="clear-search-btn" class="hidden absolute right-3 top-3 text-slate-500 hover:text-white">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
 
             <div class="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar text-[10px] font-bold tracking-wider uppercase">
-                <button onclick="togglePipelineTab('All')" class="tab-filter-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer shadow-lg shadow-cyan-500/10">All Channels</button>
-                <button onclick="togglePipelineTab('Featured')" class="tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer">⭐ Top Featured</button>
-                <button onclick="togglePipelineTab('Sports')" class="tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer">Sports</button>
+                <button id="btn-bd" onclick="switchPlaylistSource('bd')" class="tab-filter-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer shadow-lg">🇧🇩 Bangladesh</button>
+                <button id="btn-sports" onclick="switchPlaylistSource('sports')" class="tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer">⚽ Sports Only</button>
+                <button id="btn-global" onclick="switchPlaylistSource('global')" class="tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer">🌐 Global (All)</button>
             </div>
 
             <div>
-                <p class="text-[10px] font-black text-slate-500 tracking-widest uppercase mb-2 px-1">Channel Directory</p>
-                <div class="space-y-2" id="channel-pipeline-list">
+                <div class="flex justify-between items-center mb-2 px-1">
+                    <p class="text-[10px] font-black text-slate-500 tracking-widest uppercase">Live Directory</p>
+                    <p id="channel-count" class="text-[9px] font-bold text-cyan-400 bg-cyan-500/10 px-1.5 py-0.2 rounded border border-cyan-500/20">Loading...</p>
+                </div>
+                <div class="space-y-2 max-h-[40vh] overflow-y-auto pr-1 custom-scroll" id="channel-pipeline-list">
                     </div>
             </div>
 
@@ -147,89 +142,130 @@
         // Start Global Icons
         lucide.createIcons();
 
-        /* Optimized Channel Database Framework 
-           Top 5-6 Channels (T-Sports, GTV, Star Sports etc.) are placed first to load on top
-        */
-        const coreChannelDatabase = [
-            { id: 1, name: "T-Sports Live Network HD", category: "Featured", url: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", logo: "⚡", viewers: "64.5K", desc: "Featured sports station feed" },
-            { id: 2, name: "GTV Live World Cup Max", category: "Featured", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", logo: "🏆", viewers: "48.2K", desc: "Main entertainment & sports stream" },
-            { id: 3, name: "Sony Sports Ten 1 HD", category: "Featured", url: "https://samples.tdtd.ch/srt/hls/master.m3u8", logo: "⚽", viewers: "39.1K", desc: "International football coverage feed" },
-            { id: 4, name: "Star Sports 1 Hindi Premium", category: "Featured", url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", logo: "🏏", viewers: "51.4K", desc: "Alternative South Asian match feed" },
-            { id: 5, name: "PTV Sports Live Pro", category: "Featured", url: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8", logo: "📡", viewers: "22.7K", desc: "Global high-bitrate cricket feed" },
-            { id: 6, name: "Willow Cricket Live", category: "Featured", url: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", logo: "🏏", viewers: "14.9K", desc: "North American premium sports link" },
-            
-            // General Category Links
-            { id: 7, name: "FIFA Official World Stream", category: "Sports", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", logo: "🏁", viewers: "11.3K", desc: "Backup stadium automation multi-cam" },
-            { id: 8, name: "Cyber Alternative Sports", category: "Sports", url: "https://samples.tdtd.ch/srt/hls/master.m3u8", logo: "📺", viewers: "8.6K", desc: "Backup server digital allocation feed" }
-        ];
+        // 3 M3U APIs Provided by User
+        const playlistApis = {
+            bd: "https://iptv-org.github.io/iptv/countries/bd.m3u",
+            sports: "https://iptv-org.github.io/iptv/categories/sports.m3u",
+            global: "https://iptv-org.github.io/iptv/index.m3u"
+        };
 
-        // Runtime Global State Variables
-        let selectedTab = 'All';
+        // Runtime Global States
+        let currentActiveSource = 'bd';
+        let parsedChannelsMaster = [];
         let filterSearchQuery = '';
 
         // Core Initialize Video Player
         const playerInstance = videojs('cyber-core-player', {
             fluid: true,
-            html5: {
-                vhs: { overrideNative: true },
-                nativeAudioTracks: false,
-                nativeVideoTracks: false
-            }
+            html5: { vhs: { overrideNative: true } }
         });
 
         const listContainer = document.getElementById('channel-pipeline-list');
 
-        // Dynamic Interface Render Logic
+        // M3U Playlist Parser Engine (অটোমেটিক m3u কে রিড করে অবজেক্ট বানানোর লজিক)
+        async function fetchAndParseM3U(sourceKey) {
+            document.getElementById('api-status').innerText = "SYNCING...";
+            document.getElementById('api-status').className = "text-[8px] font-black bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider";
+            listContainer.innerHTML = `<div class="text-center py-10 text-xs text-slate-500 font-bold">Parsing IPTV-ORG Live Streams...</div>`;
+            
+            try {
+                const response = await fetch(playlistApis[sourceKey]);
+                const m3uString = await response.text();
+                
+                const lines = m3uString.split('\n');
+                let channels = [];
+                let currentChan = null;
+                let idCounter = 1;
+
+                for (let i = 0; i < lines.length; i++) {
+                    let line = lines[i].trim();
+                    if (line.startsWith('#EXTINF:')) {
+                        currentChan = { id: idCounter++ };
+                        
+                        // Extracting Name
+                        const nameMatch = line.match(/,(.+)$/);
+                        currentChan.name = nameMatch ? nameMatch[1].trim() : "Unknown Stream";
+                        
+                        // Extracting Logo if exists
+                        const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+                        currentChan.logo = logoMatch ? logoMatch[1] : null;
+
+                        // Extracting Category Group
+                        const groupMatch = line.match(/group-title="([^"]+)"/);
+                        currentChan.category = groupMatch ? groupMatch[1] : "General";
+                    } else if (line.startsWith('http') && currentChan) {
+                        currentChan.url = line;
+                        // Filtering out dead streams or bad entries instantly
+                        if(currentChan.name && !currentChan.name.includes('---')) {
+                            channels.push(currentChan);
+                        }
+                        currentChan = null;
+                    }
+                }
+
+                // If loading Global playlist, slice first 150 channels for ultra-fast performance
+                parsedChannelsMaster = sourceKey === 'global' ? channels.slice(0, 150) : channels;
+                
+                document.getElementById('channel-count').innerText = `${parsedChannelsMaster.length} Channels`;
+                document.getElementById('api-status').innerText = "SYNCED";
+                document.getElementById('api-status').className = "text-[8px] font-black bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider";
+                
+                renderPipelineDirectory();
+            } catch (error) {
+                console.error("IPTV-ORG Load Error: ", error);
+                document.getElementById('api-status').innerText = "ERROR";
+                document.getElementById('api-status').className = "text-[8px] font-black bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider";
+                listContainer.innerHTML = `<div class="text-center py-10 text-xs text-rose-500 font-bold">Failed to load M3U feed. CORS blocked or Down.</div>`;
+            }
+        }
+
+        // UI Directory Renderer Grid
         function renderPipelineDirectory() {
             listContainer.innerHTML = '';
 
-            // Run search and tab filters combined
-            const computationalData = coreChannelDatabase.filter(channel => {
-                const queryMatch = channel.name.toLowerCase().includes(filterSearchQuery.toLowerCase());
-                if (selectedTab === 'All') return queryMatch;
-                return channel.category === selectedTab && queryMatch;
-            });
+            const filteredData = parsedChannelsMaster.filter(channel => 
+                channel.name.toLowerCase().includes(filterSearchQuery.toLowerCase())
+            );
 
-            if (computationalData.length === 0) {
+            if (filteredData.length === 0) {
                 listContainer.innerHTML = `
                     <div class="text-center py-10 border border-dashed border-slate-800 rounded-2xl bg-slate-950/40">
                         <i data-lucide="slash" class="w-6 h-6 text-slate-600 mx-auto mb-1.5"></i>
-                        <p class="text-xs text-slate-500 font-bold tracking-wide">No sctructured data matched</p>
+                        <p class="text-xs text-slate-500 font-bold tracking-wide">No channel matched your query</p>
                     </div>
                 `;
                 lucide.createIcons();
                 return;
             }
 
-            // Loop and compile components
-            computationalData.forEach(item => {
-                const isFeaturedItem = item.category === 'Featured';
+            filteredData.forEach((item, index) => {
+                // T-Sports, GTV বা Sports ক্যাটাগরিকে উপরে প্রিমিয়াম লুক দেওয়া
+                const isTopChannel = item.name.toLowerCase().includes('sports') || item.name.toLowerCase().includes('gtv') || index < 5;
                 const wrapperCard = document.createElement('div');
                 
-                // Gorgeous glowing effect for top 5-6 channels
-                wrapperCard.className = `w-full p-3 rounded-2xl flex items-center justify-between border transition-all duration-300 group ${isFeaturedItem ? 'bg-cyan-500/[0.03] border-cyan-500/15 hover:border-cyan-500/40 shadow-sm' : 'bg-slate-950/40 border-slate-900/60 hover:border-slate-800'}`;
+                wrapperCard.className = `w-full p-2.5 rounded-xl flex items-center justify-between border transition-all duration-300 group ${isTopChannel ? 'bg-cyan-500/[0.02] border-cyan-500/15 hover:border-cyan-500/40' : 'bg-slate-950/30 border-slate-900/60 hover:border-slate-800'}`;
                 
+                // Logo check logic (যদি লোগো না থাকে তবে প্রথম অক্ষর দেখাবে)
+                const logoHtml = item.logo ? `<img src="${item.logo}" class="w-full h-full object-contain rounded-lg" onerror="this.onerror=null; this.parentElement.innerHTML='⚡';">` : '📺';
+
                 wrapperCard.innerHTML = `
-                    <div class="flex items-center gap-3 flex-1 cursor-pointer" onclick="injectStreamSource(${item.id})">
-                        <div class="w-10 h-10 bg-slate-950 border ${isFeaturedItem ? 'border-cyan-500/20 text-cyan-400' : 'border-slate-800 text-slate-300'} rounded-xl flex items-center justify-center text-md relative group-hover:scale-105 transition-all">
-                            ${item.logo}
-                            <span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-400 border border-slate-950 rounded-full animate-pulse"></span>
+                    <div class="flex items-center gap-3 flex-1 cursor-pointer overflow-hidden" onclick="injectStreamSource('${btoa(encodeURIComponent(item.url))}', '${item.name.replace(/'/g, "\\'")}', '${item.category}')">
+                        <div class="w-9 h-9 bg-slate-950 border ${isTopChannel ? 'border-cyan-500/20 text-cyan-400' : 'border-slate-800 text-slate-400'} rounded-lg flex items-center justify-center text-sm relative shrink-0 overflow-hidden">
+                            ${logoHtml}
+                            <span class="absolute -bottom-0.5 -right-0.5 w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                         </div>
-                        <div>
-                            <h4 class="text-xs font-black tracking-wide text-slate-200 group-hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                        <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold tracking-wide text-slate-200 group-hover:text-cyan-400 transition-colors truncate flex items-center gap-1.5">
                                 ${item.name}
-                                ${isFeaturedItem ? '<span class="text-[7px] font-black px-1 py-0.2 bg-cyan-500/20 text-cyan-400 rounded tracking-widest border border-cyan-500/10">TOP</span>' : ''}
+                                ${isTopChannel ? '<span class="text-[6px] font-black px-1 py-0.2 bg-cyan-500/20 text-cyan-400 rounded tracking-widest">LIVE</span>' : ''}
                             </h4>
-                            <p class="text-[9px] text-slate-500 font-medium tracking-wide mt-0.5">${item.desc}</p>
+                            <p class="text-[8px] text-slate-500 font-medium tracking-wide truncate mt-0.5">Category: ${item.category}</p>
                         </div>
                     </div>
                     
-                    <div class="flex items-center gap-2">
-                        <div class="text-[8px] font-extrabold text-slate-500 bg-slate-950/80 px-2 py-1 rounded-md border border-slate-800/80 flex items-center gap-1">
-                            <i data-lucide="eye" class="w-2.5 h-2.5 text-slate-400"></i> ${item.viewers}
-                        </div>
-                        <button onclick="injectStreamSource(${item.id})" class="w-7 h-7 bg-slate-950 border border-slate-800 rounded-lg flex items-center justify-center text-slate-400 group-hover:text-pink-500 group-hover:border-pink-500/30 shadow-md cursor-pointer">
-                            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+                    <div class="flex items-center gap-2 shrink-0 ml-2">
+                        <button onclick="injectStreamSource('${btoa(encodeURIComponent(item.url))}', '${item.name.replace(/'/g, "\\'")}', '${item.category}')" class="w-6 h-6 bg-slate-950 border border-slate-800 rounded-md flex items-center justify-center text-slate-400 group-hover:text-pink-500 group-hover:border-pink-500/30 shadow-md cursor-pointer">
+                            <i data-lucide="play" class="w-2.5 h-2.5 fill-current"></i>
                         </button>
                     </div>
                 `;
@@ -239,19 +275,16 @@
             lucide.createIcons();
         }
 
-        // Action Trigger: Active Source Ingestion
-        function injectStreamSource(id) {
-            const channel = coreChannelDatabase.find(c => c.id === id);
-            if (!channel) return;
+        // Action Trigger: Ingest Stream Source URL securely
+        function injectStreamSource(encodedUrl, title, category) {
+            const decodedUrl = decodeURIComponent(atob(encodedUrl));
+            
+            document.getElementById('active-stream-title').innerText = title;
+            document.getElementById('active-stream-category').innerText = `Source: ${category}`;
+            document.getElementById('dynamic-viewers').innerText = (Math.random() * (70 - 10) + 10).toFixed(1) + 'K';
 
-            document.getElementById('active-stream-title').innerText = channel.name;
-            document.getElementById('active-stream-category').innerText = `📌 ${channel.category} Match Server`;
-            document.getElementById('channel-icon-box').innerText = channel.logo;
-            document.getElementById('dynamic-viewers').innerText = channel.viewers;
-
-            // Secure source application
             playerInstance.src({
-                src: channel.url,
+                src: decodedUrl,
                 type: 'application/x-mpegURL'
             });
             
@@ -259,11 +292,24 @@
                 playerInstance.play();
             });
 
-            // Smooth automatic focus scroll to player
             document.getElementById('cyber-core-player').scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
 
-        // Action Trigger: Active Omni Search Keypress
+        // Action Trigger: Toggle Active Playlist Tabs
+        function switchPlaylistSource(sourceKey) {
+            currentActiveSource = sourceKey;
+            const buttons = document.querySelectorAll('.tab-filter-btn');
+            buttons.forEach(btn => {
+                if(btn.id === `btn-${sourceKey}`) {
+                    btn.className = "tab-filter-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer shadow-lg shadow-cyan-500/10";
+                } else {
+                    btn.className = "tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer";
+                }
+            });
+            fetchAndParseM3U(sourceKey);
+        }
+
+        // Search Handlers
         function runSearchFilter(value) {
             filterSearchQuery = value;
             const btn = document.getElementById('clear-search-btn');
@@ -277,22 +323,7 @@
             runSearchFilter('');
         }
 
-        // Action Trigger: Tab Filtration Engine
-        function togglePipelineTab(tabName) {
-            selectedTab = tabName;
-            const buttons = document.querySelectorAll('.tab-filter-btn');
-            
-            buttons.forEach(btn => {
-                if (btn.innerText.includes(tabName) || (tabName === 'Featured' && btn.innerText.includes('Top Featured'))) {
-                    btn.className = "tab-filter-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer shadow-lg shadow-cyan-500/10";
-                } else {
-                    btn.className = "tab-filter-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800/80 rounded-xl transition-all cursor-pointer";
-                }
-            });
-            renderPipelineDirectory();
-        }
-
-        // Interactive Routine: Drift Simulation for Live Viewers
+        // Live Viewer drift simulation routine
         setInterval(() => {
             const label = document.getElementById('dynamic-viewers');
             if (label) {
@@ -302,8 +333,8 @@
             }
         }, 4500);
 
-        // Run Engine on Load
-        renderPipelineDirectory();
+        // Run Bangladesh Playlist Automatically on Initial Boot
+        switchPlaylistSource('bd');
     </script>
 </body>
 </html>
