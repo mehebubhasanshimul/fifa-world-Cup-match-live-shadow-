@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA WORLD CUP 2026 - ULTIMATE IPTV</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .neon-premium {
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(255, 0, 128, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(2, 6, 23, 0.8);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff0080, #00f2fe);
+            border-radius: 10px;
+        }
+        .video-js {
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 1.5rem;
+        }
+        .video-js .vjs-big-play-button {
+            background: linear-gradient(135deg, #ff0080, #7c3aed) !important;
+            border: 2px solid #00f2fe !important;
+            width: 3.2em !important;
+            height: 3.2em !important;
+            line-height: 3.1em !important;
+            border-radius: 50% !important;
+            margin-top: -1.6em !important;
+            margin-left: -1.6em !important;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-100 font-sans min-h-screen flex justify-center items-center antialiased bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-950 via-[#0f172a] to-black p-2 sm:p-4">
+
+    <div class="w-full max-w-md h-[96vh] bg-slate-900/40 backdrop-blur-3xl rounded-[2.5rem] border border-slate-800/80 overflow-hidden flex flex-col relative neon-premium">
+        
+        <header class="p-4 border-b border-slate-800/60 bg-slate-950/70 flex justify-between items-center z-10 backdrop-blur-md">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-pink-500/20">
+                    <i data-lucide="play-circle" class="text-white w-5 h-5"></i>
+                </div>
+                <div>
+                    <h1 class="text-md font-black tracking-wider bg-gradient-to-r from-cyan-400 via-pink-500 to-amber-400 bg-clip-text text-transparent">CYBER PLATFORM</h1>
+                    <p class="text-[9px] text-slate-400 font-bold tracking-widest uppercase">Version 4.0 Pro</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTheme()" class="p-2 bg-slate-900 hover:bg-slate-800 rounded-xl border border-slate-800 text-amber-400 transition-all cursor-pointer">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                </button>
+                <div class="text-[10px] font-black bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2.5 py-1 rounded-lg uppercase">
+                    LIVE
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-4 space-y-4 pb-24 custom-scrollbar">
+            
+            <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden border border-slate-800 relative shadow-2xl">
+                <video id="cyber-hls-player" class="video-js vjs-default-skin" controls preload="auto" poster="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200">
+                    <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+                </video>
+            </div>
+
+            <div class="p-3 bg-slate-950/80 rounded-2xl border border-slate-800/80 flex justify-between items-center shadow-inner">
+                <div class="flex items-center gap-3">
+                    <div id="meta-icon" class="w-10 h-10 bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 rounded-xl flex items-center justify-center text-xl border border-slate-800">
+                        🏆
+                    </div>
+                    <div>
+                        <h2 id="meta-title" class="text-xs font-black text-white tracking-wide">FIFA World Stream 01</h2>
+                        <p id="meta-category" class="text-[10px] text-cyan-400 font-bold uppercase tracking-wider mt-0.5">Primary Server</p>
+                    </div>
+                </div>
+                <div class="bg-rose-500/10 border border-rose-500/20 px-2 py-1 rounded-lg flex items-center gap-1.5 text-rose-400">
+                    <i data-lucide="users" class="w-3 h-3"></i>
+                    <span id="live-viewers" class="text-[10px] font-black tracking-mono">14.2K</span>
+                </div>
+            </div>
+
+            <div class="relative">
+                <i data-lucide="search" class="absolute left-3.5 top-3.5 text-slate-500 w-4 h-4"></i>
+                <input type="text" id="omni-search" oninput="executeSearch(this.value)" placeholder="Type to search channels instantly..." class="w-full bg-slate-950/60 border border-slate-800 focus:border-pink-500/50 rounded-xl py-3 pl-11 pr-4 text-xs font-medium text-slate-200 focus:outline-none transition-all">
+                <button onclick="clearSearch()" id="clear-search-btn" class="hidden absolute right-3 top-3 text-slate-500 hover:text-white">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <div class="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar text-[11px] font-bold">
+                <button onclick="switchTab('All')" class="tab-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer">All Channels</button>
+                <button onclick="switchTab('Favorites')" class="tab-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800 rounded-xl transition-all cursor-pointer flex items-center gap-1">
+                    <i data-lucide="heart" class="w-3 h-3 text-rose-500 fill-rose-500"></i> My Favs
+                </button>
+                <button onclick="switchTab('Sports')" class="tab-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800 rounded-xl transition-all cursor-pointer">Sports</button>
+                <button onclick="switchTab('Entertainment')" class="tab-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800 rounded-xl transition-all cursor-pointer">Entertainment</button>
+            </div>
+
+            <div class="space-y-2.5" id="pipeline-container">
+                </div>
+
+        </main>
+
+        <footer class="absolute bottom-0 left-0 right-0 p-3 bg-slate-950/95 border-t border-slate-800/60 backdrop-blur-2xl text-center z-20">
+            <p class="text-[10px] tracking-widest text-slate-400 font-medium uppercase">
+                Developed By <span class="text-cyan-400 font-extrabold tracking-wider">CYBER TEAM HELP</span>
+            </p>
+            <p class="text-[8px] tracking-widest text-slate-500 font-bold uppercase mt-0.5">
+                System Framework: <span class="text-pink-500 font-black">SHADOW JOKER</span>
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.js"></script>
+
+    <script>
+        // Start Lucide Icons System
+        lucide.createIcons();
+
+        // Comprehensive Core Database List (1000+ Potential Scale Setup)
+        const channelDatabase = [
+            { id: 1, name: "FIFA World Cup Live 4K", category: "Sports", url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8", logo: "🏆", status: "Online", viewers: "42.8K" },
+            { id: 2, name: "Sports Premium HD (Alt)", category: "Sports", url: "https://samples.tdtd.ch/srt/hls/master.m3u8", logo: "⚽", status: "Online", viewers: "19.5K" },
+            { id: 3, name: "Cyber Sports Network Live", category: "Sports", url: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8", logo: "📡", status: "Online", viewers: "8.1K" },
+            { id: 4, name: "Global Entertainment Feed", category: "Entertainment", url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", logo: "🎬", status: "Online", viewers: "24.3K" },
+            { id: 5, name: "Action Arena Max Live", category: "Entertainment", url: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8", logo: "🍿", status: "Offline", viewers: "0" }
+        ];
+
+        // System Configuration States
+        let activeTab = 'All';
+        let liveSearchQuery = '';
+        let systemFavorites = [1, 3]; // Default initial liked IDs
+
+        // Instance Setup Player Backend
+        const corePlayer = videojs('cyber-hls-player');
+
+        // Main Interface Render Pipeline
+        function renderPipeline() {
+            const container = document.getElementById('pipeline-container');
+            container.innerHTML = '';
+
+            // Engine Filtering Logic Execution
+            const targetData = channelDatabase.filter(channel => {
+                const searchMatch = channel.name.toLowerCase().includes(liveSearchQuery.toLowerCase());
+                
+                if (activeTab === 'All') return searchMatch;
+                if (activeTab === 'Favorites') return systemFavorites.includes(channel.id) && searchMatch;
+                return channel.category === activeTab && searchMatch;
+            });
+
+            // UI Empty State Feedback Trigger
+            if (targetData.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 border border-dashed border-slate-800 rounded-2xl bg-slate-950/20">
+                        <i data-lucide="search-code" class="w-7 h-7 text-slate-600 mx-auto mb-2"></i>
+                        <p class="text-xs text-slate-500 font-bold tracking-wide">No matched streams listed</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            // Loop and Append Component Templates
+            targetData.forEach(item => {
+                const isFav = systemFavorites.includes(item.id);
+                const isOnline = item.status === 'Online';
+                
+                const element = document.createElement('div');
+                element.className = `w-full bg-slate-950/40 border border-slate-950 hover:border-slate-800/80 p-3 rounded-2xl flex items-center justify-between transition-all group duration-300`;
+                
+                element.innerHTML = `
+                    <div class="flex items-center gap-3 cursor-pointer flex-1" onclick="deploySource(${item.id})">
+                        <div class="w-10 h-10 bg-slate-950 border border-slate-800/80 group-hover:border-pink-500/20 rounded-xl flex items-center justify-center text-lg relative">
+                            ${item.logo}
+                            <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 ${isOnline ? 'bg-emerald-500' : 'bg-rose-500'} border-2 border-slate-950 rounded-full"></span>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-200 group-hover:text-cyan-400 transition-all tracking-wide flex items-center gap-1.5">
+                                ${item.name}
+                            </h4>
+                            <div class="flex items-center gap-2 mt-0.5 text-[9px] text-slate-500 font-semibold tracking-wider">
+                                <span class="uppercase">${item.category}</span>
+                                <span>•</span>
+                                <span class="text-slate-400 flex items-center gap-0.5"><i data-lucide="eye" class="w-2.5 h-2.5"></i> ${item.viewers}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleFav(event, ${item.id})" class="p-2 hover:bg-slate-900 rounded-lg text-slate-600 hover:text-rose-500 transition-all cursor-pointer">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 ${isFav ? 'fill-rose-500 text-rose-500' : ''}"></i>
+                        </button>
+                        <button onclick="deploySource(${item.id})" class="w-7 h-7 bg-slate-950 border border-slate-800/80 rounded-lg flex items-center justify-center text-slate-400 group-hover:text-pink-500 group-hover:border-pink-500/30 shadow-md">
+                            <i data-lucide="play" class="w-3 h-3 fill-current"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(element);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Action Trigger: Search Processing Engine
+        function executeSearch(value) {
+            liveSearchQuery = value;
+            const clearBtn = document.getElementById('clear-search-btn');
+            if(value.length > 0) clearBtn.classList.remove('hidden');
+            else clearBtn.classList.add('hidden');
+            renderPipeline();
+        }
+
+        function clearSearch() {
+            document.getElementById('omni-search').value = '';
+            executeSearch('');
+        }
+
+        // Action Trigger: Filter Tab Navigation
+        function switchTab(tabName) {
+            activeTab = tabName;
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                if (btn.innerText.includes(tabName) || (tabName === 'Favorites' && btn.innerText.includes('My Favs'))) {
+                    btn.className = "tab-btn px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl transition-all cursor-pointer";
+                } else {
+                    btn.className = "tab-btn px-4 py-2 bg-slate-950 text-slate-400 border border-slate-800 rounded-xl transition-all cursor-pointer";
+                }
+            });
+            renderPipeline();
+        }
+
+        // Action Trigger: Bookmark/Favorite Logic
+        function toggleFav(event, id) {
+            event.stopPropagation();
+            if (systemFavorites.includes(id)) {
+                systemFavorites = systemFavorites.filter(item => item !== id);
+            } else {
+                systemFavorites.push(id);
+            }
+            renderPipeline();
+        }
+
+        // Action Trigger: Source Deployer
+        function deploySource(id) {
+            const channel = channelDatabase.find(c => c.id === id);
+            if (!channel) return;
+
+            document.getElementById('meta-title').innerText = channel.name;
+            document.getElementById('meta-category').innerText = `${channel.category} Server`;
+            document.getElementById('meta-icon').innerText = channel.logo;
+            document.getElementById('live-viewers').innerText = channel.viewers;
+
+            corePlayer.src({
+                src: channel.url,
+                type: 'application/x-mpegURL'
+            });
+            corePlayer.play();
+            
+            document.getElementById('cyber-hls-player').scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        // Theme Glow Alteration Engine 
+        function toggleTheme() {
+            const target = document.body;
+            target.classList.toggle('from-slate-950');
+            target.classList.toggle('from-indigo-950');
+        }
+
+        // Loop Runner: Random Viewer Counter Generator
+        setInterval(() => {
+            const counter = document.getElementById('live-viewers');
+            if(counter) {
+                const current = parseFloat(counter.innerText);
+                const drift = (Math.random() * (0.4 - (-0.4)) + (-0.4)).toFixed(1);
+                counter.innerText = (Math.max(1, current + parseFloat(drift))).toFixed(1) + 'K';
+            }
+        }, 4000);
+
+        // System Startup Trigger
+        renderPipeline();
+    </script>
+</body>
+</html>
